@@ -27,9 +27,7 @@ Before running the application, ensure the following software is installed.
 
 ## .NET 10 SDK
 
-Download and install the .NET 10 SDK appropriate for your operating system.
-
-For macOS (Apple Silicon):
+Download and install the .NET 10 SDK appropriate for your operating system:
 
 https://dotnet.microsoft.com/en-us/download/dotnet/10.0
 
@@ -101,10 +99,10 @@ dotnet ef database update
 
 # Running the API
 
-Navigate to the API project directory and run:
+Navigate to the Base project directory and run:
 
 ```bash
-dotnet run
+dotnet run --project News.Api
 ```
 
 By default the API will be available at:
@@ -157,4 +155,26 @@ If running from the terminal:
 
 ```text
 Ctrl + C
+```
+
+# Running the Unit Tests
+
+Navigate to the Base project directory and run:
+
+```bash
+dotnet test
+```
+
+# Running the Blazor Website
+
+Navigate to the Base project directory and run:
+
+```bash
+dotnet run --project News.Web
+```
+
+By default the Website will be available at:
+
+```text
+http://localhost:5190
 ```
