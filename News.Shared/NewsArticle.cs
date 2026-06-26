@@ -1,4 +1,4 @@
-namespace News.Api.Models;
+namespace News.Shared;
 
 public class NewsArticle
 {

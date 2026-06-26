@@ -1,6 +1,7 @@
 using Microsoft.EntityFrameworkCore;
 using News.Api.Database;
 using News.Api.Models;
+using News.Shared;
 
 namespace News.Api.Services;
 
