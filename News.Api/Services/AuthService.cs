@@ -2,9 +2,9 @@ using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System.Text;
 using Microsoft.IdentityModel.Tokens;
-using NewsApi.Models;
+using News.Api.Models;
 
-namespace NewsApi.Services;
+namespace News.Api.Services;
 
 public class AuthService(IConfiguration configuration)
 {

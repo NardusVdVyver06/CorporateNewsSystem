@@ -1,4 +1,4 @@
-namespace NewsApi.Services;
+namespace News.Api.Services;
 
 public class MonitorService(IConfiguration configuration)
 {

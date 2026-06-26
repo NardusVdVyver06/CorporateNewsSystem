@@ -21,4 +21,8 @@
     <PackageReference Include="Scalar.AspNetCore" Version="2.16.6" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\News.Shared\News.Shared.csproj" />
+  </ItemGroup>
+
 </Project>

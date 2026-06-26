@@ -1,8 +1,8 @@
 using Microsoft.EntityFrameworkCore;
-using NewsApi.Database;
-using NewsApi.Models;
+using News.Api.Database;
+using News.Api.Models;
 
-namespace NewsApi.Services;
+namespace News.Api.Services;
 
 public class NewsArticleService(NewsArticleDbContext dbContext)
 {

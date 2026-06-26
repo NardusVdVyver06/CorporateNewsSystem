@@ -1,6 +1,6 @@
 using Microsoft.EntityFrameworkCore;
-using NewsApi.Database;
-using NewsApi.Startup;
+using News.Api.Database;
+using News.Api.Startup;
 using Scalar.AspNetCore;
 
 var builder = WebApplication.CreateBuilder(args);

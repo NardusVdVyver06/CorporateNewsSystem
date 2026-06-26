@@ -2,7 +2,7 @@ using System.Text;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
 
-namespace NewsApi.Startup;
+namespace News.Api.Startup;
 
 public static class JwtAuthentication
 {

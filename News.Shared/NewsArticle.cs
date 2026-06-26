@@ -1,7 +1,11 @@
-namespace NewsApi.Models;
+namespace News.Api.Models;
 
-public class CreateNewsArticleRequest
+public class NewsArticle
 {
+    public int Id { get; set; }
+    
+    public DateTime PublishDate { get; set; }
+    
     public required string Author { get; set; }
     
     public required string Title { get; set; }

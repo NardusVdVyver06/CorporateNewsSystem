@@ -1,9 +1,9 @@
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using NewsApi.Models;
-using NewsApi.Services;
+using News.Api.Models;
+using News.Api.Services;
 
-namespace NewsApi.Startup;
+namespace News.Api.Startup;
 
 public static class EndpointMappingSetup
 {

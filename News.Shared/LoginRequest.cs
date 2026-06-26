@@ -1,4 +1,4 @@
-namespace NewsApi.Models;
+namespace News.Api.Models;
 
 public class LoginRequest
 {

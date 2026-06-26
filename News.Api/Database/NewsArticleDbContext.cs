@@ -1,7 +1,7 @@
 using Microsoft.EntityFrameworkCore;
-using NewsApi.Database.Models;
+using News.Api.Database.Models;
 
-namespace NewsApi.Database;
+namespace News.Api.Database;
 
 public class NewsArticleDbContext(DbContextOptions<NewsArticleDbContext> options) : DbContext(options)
 {

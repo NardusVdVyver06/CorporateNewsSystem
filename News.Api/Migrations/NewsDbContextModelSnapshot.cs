@@ -3,11 +3,11 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
-using NewsApi.Database;
+using News.Api.Database;
 
 #nullable disable
 
-namespace NewsApi.Migrations
+namespace News.Api.Migrations
 {
     [DbContext(typeof(NewsArticleDbContext))]
     partial class NewsDbContextModelSnapshot : ModelSnapshot

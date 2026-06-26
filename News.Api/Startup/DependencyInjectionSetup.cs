@@ -1,6 +1,6 @@
-using NewsApi.Services;
+using News.Api.Services;
 
-namespace NewsApi.Startup;
+namespace News.Api.Startup;
 
 public static class DependencyInjectionSetup
 {

@@ -1,8 +1,8 @@
 using Microsoft.EntityFrameworkCore;
-using NewsApi.Database;
-using NewsApi.Database.Models;
+using News.Api.Database;
+using News.Api.Database.Models;
 
-namespace NewsApi.Startup;
+namespace News.Api.Startup;
 
 public static class DatabaseSeed
 {

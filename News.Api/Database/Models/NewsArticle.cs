@@ -1,6 +1,6 @@
 using System.ComponentModel.DataAnnotations;
 
-namespace NewsApi.Database.Models;
+namespace News.Api.Database.Models;
 
 public class NewsArticle
 {

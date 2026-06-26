@@ -4,11 +4,11 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
-using NewsApi.Database;
+using News.Api.Database;
 
 #nullable disable
 
-namespace NewsApi.Migrations
+namespace News.Api.Migrations
 {
     [DbContext(typeof(NewsArticleDbContext))]
     [Migration("20260626153605_ChangeToDateTime")]
