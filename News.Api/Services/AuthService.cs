@@ -3,6 +3,7 @@ using System.Security.Claims;
 using System.Text;
 using Microsoft.IdentityModel.Tokens;
 using News.Api.Models;
+using News.Shared;
 
 namespace News.Api.Services;
 

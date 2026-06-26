@@ -1,0 +1,43 @@
+@page "/article/{Id:int}"
+@inject NewsStateStore NewsStateStore
+
+<PageTitle>@(_article?.Title ?? "Article")</PageTitle>
+
+<div class="container py-4 py-lg-5">
+    @if (_article is null)
+    {
+        <div class="alert alert-light border mb-0">That article could not be found.</div>
+    }
+    else
+    {
+        <a class="link-secondary text-decoration-none mb-3 d-inline-block" href="/articles">Back to articles</a>
+
+        <article>
+            <header class="mb-4">
+                <h1 class="display-6 mb-2">@_article.Title</h1>
+                <div class="text-body-secondary">
+                    <span>@_article.Author</span>
+                    <span class="mx-2">•</span>
+                    <span>@_article.PublishDate.ToLocalTime().ToString("dd MMM yyyy")</span>
+                </div>
+            </header>
+
+            <div class="fs-5 lh-lg">
+                @((MarkupString)_article.Content)
+            </div>
+        </article>
+    }
+</div>
+
+@code {
+    [Parameter]
+    public int Id { get; set; }
+
+    private NewsArticle? _article;
+
+    protected override Task OnParametersSetAsync()
+    {
+        _article = NewsStateStore.GetArticle(Id);
+        return Task.CompletedTask;
+    }
+}

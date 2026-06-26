@@ -2,6 +2,7 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using News.Api.Models;
 using News.Api.Services;
+using News.Shared;
 
 namespace News.Api.Startup;
 

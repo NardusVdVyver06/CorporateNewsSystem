@@ -3,6 +3,7 @@ using System.Net.Http.Headers;
 using System.Net.Http.Json;
 using Microsoft.AspNetCore.Mvc.Testing;
 using News.Api.Models;
+using News.Shared;
 
 namespace News.Tests;
 
