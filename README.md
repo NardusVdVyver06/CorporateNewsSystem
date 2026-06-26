@@ -171,11 +171,10 @@ In a separate terminal:
 dotnet run --project News.Web
 ```
 
-The terminal will display something similar to:
+The website will be deployed to:
 
 ```
-Now listening on:
-https://localhost:7xxx
+http://localhost:7072
 ```
 
 Open the displayed URL in your browser.
