@@ -4,34 +4,70 @@
 
 This project is a full-stack web application consisting of:
 
-* **.NET 10 Minimal REST API**
-* **Blazor Frontend**
+- **News.Api** - A .NET 10 Minimal REST API
+- **News.Web** - A Blazor Server web application
+- **News.Shared** - Shared models used by both the API and frontend
+- **News.Tests** - Unit tests for the API
 
-The application is designed to allow users to browse corporate news articles while providing administrators with the ability to create, update, and delete articles through secured API endpoints.
+The application allows users to browse corporate news articles while providing administrators with secure endpoints to create, update and delete articles.
 
-The backend follows a modern ASP.NET Core architecture using:
+---
 
-* .NET 10
-* Minimal APIs
-* Entity Framework Core
-* SQLite
-* Code-First Migrations
-* JWT Authentication
-* Role-Based Authorization
+# Technology Stack
+
+## Backend
+
+- .NET 10
+- ASP.NET Core Minimal APIs
+- Entity Framework Core
+- SQLite
+- JWT Authentication
+- Role-Based Authorization
+
+## Frontend
+
+- Blazor Server (.NET 10)
+- Bootstrap
+
+## Testing
+
+- xUnit
+- FluentAssertions
+- EF Core InMemory Provider
+
+---
+
+# Solution Structure
+
+```
+CorporateNews.sln
+│
+├── News.Api
+│   REST API
+│
+├── News.Web
+│   Blazor Frontend
+│
+├── News.Shared
+│   Shared Requests, Responses and Models
+│
+└── News.Tests
+    Unit Tests
+```
 
 ---
 
 # Prerequisites
 
-Before running the application, ensure the following software is installed.
+Please install the following before running the solution.
 
 ## .NET 10 SDK
 
-Download and install the .NET 10 SDK appropriate for your operating system:
+Download from:
 
-https://dotnet.microsoft.com/en-us/download/dotnet/10.0
+https://dotnet.microsoft.com/download
 
-Verify the installation:
+Verify installation:
 
 ```bash
 dotnet --version
@@ -41,13 +77,13 @@ dotnet --version
 
 ## Entity Framework Core CLI
 
-Install the EF Core command line tools:
+Install globally:
 
 ```bash
 dotnet tool install --global dotnet-ef
 ```
 
-Verify the installation:
+Verify installation:
 
 ```bash
 dotnet ef
@@ -57,7 +93,7 @@ dotnet ef
 
 # Restoring Packages
 
-Restore all NuGet packages before running the project.
+From the solution root:
 
 ```bash
 dotnet restore
@@ -67,64 +103,101 @@ dotnet restore
 
 # Database
 
-The application uses **SQLite** together with **Entity Framework Core Code-First Migrations**.
+The project uses SQLite together with Entity Framework Core Code-First Migrations.
 
-The SQLite database will be created automatically after applying the migrations.
-
-## Applying Existing Migrations
-
-Run:
+## Apply Existing Migrations
 
 ```bash
-dotnet ef database update
+dotnet ef database update --project News.Api
 ```
+
+This will automatically create the SQLite database.
 
 ---
 
-## Creating a New Migration
+## Creating New Migrations
 
-After making changes to the Entity Framework models:
+After modifying an Entity:
 
 ```bash
-dotnet ef migrations add MigrationName
+dotnet ef migrations add MigrationName --project News.Api
 ```
 
-Apply the migration:
+Then update the database:
 
 ```bash
-dotnet ef database update
+dotnet ef database update --project News.Api
 ```
 
 ---
 
 # Running the API
 
-Navigate to the Base project directory and run:
+Navigate to the solution root and run:
 
 ```bash
 dotnet run --project News.Api
 ```
 
-By default the API will be available at:
+The API will start on:
 
-```text
+```
 http://localhost:5220
 ```
 
 ---
 
-# Verifying the API
+# Verify the API
 
-Once the API is running, browse to:
+Navigate to:
 
-```text
+```
 http://localhost:5220/monitor
 ```
 
-A successful response should return:
+Expected response:
 
-```text
+```
 News Api - Development
+```
+
+---
+
+# Running the Blazor Frontend
+
+In a separate terminal:
+
+```bash
+dotnet run --project News.Web
+```
+
+The terminal will display something similar to:
+
+```
+Now listening on:
+https://localhost:7xxx
+```
+
+Open the displayed URL in your browser.
+
+> **Note**
+>
+> The API must be running before starting the Blazor application.
+
+---
+
+# Running Unit Tests
+
+From the solution root:
+
+```bash
+dotnet test
+```
+
+or
+
+```bash
+dotnet test News.Tests
 ```
 
 ---
@@ -133,48 +206,55 @@ News Api - Development
 
 The API uses JWT Bearer Authentication.
 
-Authenticate using the login endpoint to obtain a JWT token.
+Login:
 
-```text
+```
 POST /api/auth/login
 ```
 
-The returned token should be included in subsequent requests using the Authorization header:
+The returned JWT should be supplied in the Authorization header.
 
-```text
-Authorization: Bearer <your-jwt-token>
+```
+Authorization: Bearer {token}
 ```
 
 Administrative endpoints require the **Admin** role.
 
 ---
 
-# Stopping the API
+# Stopping the Applications
 
 If running from the terminal:
 
-```text
+```
 Ctrl + C
 ```
 
-# Running the Unit Tests
+---
 
-Navigate to the Base project directory and run:
+# Continuous Integration
 
-```bash
-dotnet test
-```
+A GitHub Actions workflow is included.
 
-# Running the Blazor Website
+Every Pull Request automatically:
 
-Navigate to the Base project directory and run:
+- Restores NuGet packages
+- Builds the solution
+- Ensures the project compiles successfully
 
-```bash
-dotnet run --project News.Web
-```
+---
 
-By default the Website will be available at:
+# Project Highlights
 
-```text
-http://localhost:5190
-```
+- Minimal APIs
+- RESTful endpoint design
+- JWT Authentication
+- Role-Based Authorization
+- Entity Framework Core Code-First Migrations
+- SQLite Database
+- Blazor Server Frontend
+- Shared Contracts Library
+- Unit Tests
+- GitHub Actions CI Pipeline
+
+---
