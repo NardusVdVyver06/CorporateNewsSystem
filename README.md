@@ -31,9 +31,9 @@ The application allows users to browse corporate news articles while providing a
 
 ## Testing
 
-- xUnit
-- FluentAssertions
-- EF Core InMemory Provider
+- Unit tests using **xUnit**
+- Integration tests using **ASP.NET Core's `WebApplicationFactory`**
+- End-to-end HTTP endpoint validation using `HttpClient`
 
 ---
 
