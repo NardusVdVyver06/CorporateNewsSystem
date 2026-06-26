@@ -1,0 +1,59 @@
+@page "/"
+@page "/articles"
+@inject NewsApiClient NewsApiClient
+@inject NewsStateStore NewsStateStore
+
+<PageTitle>Articles</PageTitle>
+
+<div class="container py-4 py-lg-5">
+    <div class="mb-4">
+        <h1 class="display-6 mb-1">Articles</h1>
+        <p class="text-body-secondary mb-0">Select an article to read the full story.</p>
+    </div>
+
+    @if (_articles is null)
+    {
+        <div class="text-body-secondary">Loading articles...</div>
+    }
+    else if (_articles.Count == 0)
+    {
+        <div class="alert alert-light border mb-0">No articles are available.</div>
+    }
+    else
+    {
+        <div class="list-group">
+            @foreach (var article in _articles)
+            {
+                <a class="list-group-item list-group-item-action py-3" href="@($"/article/{article.Id}")">
+                    <div class="d-flex w-100 justify-content-between gap-3">
+                        <h2 class="h5 mb-1">@article.Title</h2>
+                        <small class="text-body-secondary text-nowrap">@article.PublishDate.ToLocalTime().ToString("dd MMM yyyy")</small>
+                    </div>
+                    <div class="text-body-secondary small mb-2">@article.Author</div>
+                    <div class="text-body-tertiary">
+                        @GetPreview(article.Content)
+                    </div>
+                </a>
+            }
+        </div>
+    }
+</div>
+
+@code {
+    private List<NewsArticle>? _articles;
+
+    protected override async Task OnInitializedAsync()
+    {
+        _articles = await NewsApiClient.GetArticlesAsync();
+        NewsStateStore.SetArticles(_articles);
+    }
+
+    private static string GetPreview(string content)
+    {
+        const int maxLength = 180;
+        
+        return content.Length <= maxLength
+            ? content
+            : $"{content[..maxLength].Trim()}...";
+    }
+}
