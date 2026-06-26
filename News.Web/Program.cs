@@ -1,10 +1,17 @@
 using News.Web.Components;
+using News.Web.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddRazorComponents()
     .AddInteractiveServerComponents();
+builder.Services.AddSingleton<NewsStateStore>();
+builder.Services.AddHttpClient<NewsApiClient>(client =>
+{
+    var baseUrl = builder.Configuration["NewsApi:BaseUrl"] ?? "http://localhost:5220/";
+    client.BaseAddress = new Uri(baseUrl);
+});
 
 var app = builder.Build();
 
