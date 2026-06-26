@@ -43,17 +43,19 @@ public class NewsArticleService(NewsArticleDbContext dbContext)
     {
         try
         {
-            dbContext.NewsArticles.Add(new Database.Models.NewsArticle
+            var newsArticle = new Database.Models.NewsArticle
             {
                 PublishDate = DateTime.UtcNow,
                 Author = request.Author,
                 Title = request.Title,
                 Content = request.Content
-            });
+            };
+            
+            dbContext.NewsArticles.Add(newsArticle);
 
             await dbContext.SaveChangesAsync();
             
-            return Results.Ok();
+            return Results.Ok(newsArticle.Id);
         }
         catch (Exception ex)
         {

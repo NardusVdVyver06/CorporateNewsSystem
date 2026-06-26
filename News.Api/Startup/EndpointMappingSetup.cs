@@ -37,7 +37,7 @@ public static class EndpointMappingSetup
             
             app.MapPost("/create/article", [Authorize(Roles = AuthorizationRoles.Admin)]  ([FromServices] NewsArticleService newsArticleService, [FromBody] CreateNewsArticleRequest createNewsArticleRequest)
                     => newsArticleService.CreateNewsArticle(createNewsArticleRequest))
-                .Produces(StatusCodes.Status200OK);
+                .Produces<int>(StatusCodes.Status200OK);
             
             app.MapPut("/update/article", [Authorize(Roles = AuthorizationRoles.Admin)]  ([FromServices] NewsArticleService newsArticleService, [FromBody] UpdateNewsArticleRequest updateNewsArticleRequest)
                     => newsArticleService.UpdateNewsArticle(updateNewsArticleRequest))
