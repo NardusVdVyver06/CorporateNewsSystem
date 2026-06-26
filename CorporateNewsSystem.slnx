@@ -1,5 +1,6 @@
 <Solution>
   <Project Path="News.Api/News.Api.csproj" />
+  <Project Path="News.Shared/News.Shared.csproj" />
   <Project Path="News.Tests/News.Tests.csproj" />
   <Project Path="News.Web/News.Web.csproj" />
 </Solution>
