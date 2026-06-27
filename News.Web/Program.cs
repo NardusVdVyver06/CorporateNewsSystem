@@ -9,7 +9,7 @@ builder.Services.AddRazorComponents()
 builder.Services.AddSingleton<NewsStateStore>();
 builder.Services.AddHttpClient<NewsApiClient>(client =>
 {
-    var baseUrl = builder.Configuration["NewsApi:BaseUrl"] ?? "http://localhost:5220/";
+    var baseUrl = builder.Configuration["NewsApi:BaseUrl"] ?? "";
     client.BaseAddress = new Uri(baseUrl);
 });
 
