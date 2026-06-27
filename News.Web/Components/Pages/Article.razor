@@ -12,10 +12,10 @@
     {
         <a class="link-secondary text-decoration-none mb-3 d-inline-block" href="/articles">Back to articles</a>
 
-        <article>
+        <article class="card border-0 shadow-sm rounded-4 text-decoration-none p-4">
             <header class="mb-4">
-                <h1 class="display-6 mb-2">@_article.Title</h1>
-                <div class="text-body-secondary">
+                <h1 class="h3 mb-0 fw-semibold text-heading pb-2">@_article.Title</h1>
+                <div class="text-highlight">
                     <span>@_article.Author</span>
                     <span class="mx-2">•</span>
                     <span>@_article.PublishDate.ToLocalTime().ToString("dd MMM yyyy")</span>

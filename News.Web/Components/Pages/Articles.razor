@@ -7,13 +7,13 @@
 
 <div class="container py-4 py-lg-5">
     <div class="mb-4">
-        <h1 class="display-6 mb-1">Articles</h1>
+        <h1 class="display-6 mb-1 text-heading">Articles</h1>
         <p class="text-body-secondary mb-0">Select an article to read the full story.</p>
     </div>
 
     @if (_articles is null)
     {
-        <div class="text-body-secondary">Loading articles...</div>
+        <div class="text-body-secondary text-heading">Loading articles...</div>
     }
     else if (_articles.Count == 0)
     {
@@ -21,19 +21,37 @@
     }
     else
     {
-        <div class="list-group">
+        <div class="row g-4">
             @foreach (var article in _articles)
             {
-                <a class="list-group-item list-group-item-action py-3" href="@($"/article/{article.Id}")">
-                    <div class="d-flex w-100 justify-content-between gap-3">
-                        <h2 class="h5 mb-1">@article.Title</h2>
-                        <small class="text-body-secondary text-nowrap">@article.PublishDate.ToLocalTime().ToString("dd MMM yyyy")</small>
-                    </div>
-                    <div class="text-body-secondary small mb-2">@article.Author</div>
-                    <div class="text-body-tertiary">
-                        @GetPreview(article.Content)
-                    </div>
-                </a>
+                <div class="col-12">
+                    <a href="@($"/article/{article.Id}")"
+                       class="card article-card border-0 shadow-sm rounded-4 text-decoration-none text-reset h-100">
+
+                        <div class="card-body p-4">
+
+                            <div class="d-flex justify-content-between align-items-start gap-3 mb-2">
+                                <h2 class="h4 mb-0 fw-semibold text-heading">
+                                    @article.Title
+                                </h2>
+
+                                <small class="text-nowrap text-highlight">
+                                    @article.PublishDate.ToLocalTime().ToString("dd MMM yyyy")
+                                </small>
+                            </div>
+
+                            <div class="small mb-3 text-highlight">
+                                @article.Author
+                            </div>
+
+                            <p class="mb-0">
+                                @GetPreview(article.Content)
+                            </p>
+
+                        </div>
+
+                    </a>
+                </div>
             }
         </div>
     }
