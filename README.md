@@ -17,7 +17,7 @@ The application allows users to browse corporate news articles while providing a
 
 ## Backend
 
-- .NET 10
+- .NET 10 C#
 - ASP.NET Core Minimal APIs
 - Entity Framework Core
 - SQLite
@@ -31,7 +31,7 @@ The application allows users to browse corporate news articles while providing a
 
 ## Testing
 
-- Unit tests using **xUnit**
+- Test Project setup using **xUnit**
 - Integration tests using **ASP.NET Core's `WebApplicationFactory`**
 - End-to-end HTTP endpoint validation using `HttpClient`
 
@@ -40,7 +40,7 @@ The application allows users to browse corporate news articles while providing a
 # Solution Structure
 
 ```
-CorporateNews.sln
+CorporateNewsSystem.slnx
 │
 ├── News.Api
 │   REST API
@@ -105,7 +105,7 @@ dotnet restore
 
 The project uses SQLite together with Entity Framework Core Code-First Migrations.
 
-## Apply Existing Migrations
+## Apply Existing Migrations (Optional)
 
 ```bash
 dotnet ef database update --project News.Api
@@ -163,6 +163,16 @@ News Api - Development
 
 ---
 
+# Scalar Documentation is enabled
+
+Navigate to:
+
+```
+http://localhost:5220/scalar
+```
+
+---
+
 # Running the Blazor Frontend
 
 In a separate terminal:
@@ -208,7 +218,7 @@ The API uses JWT Bearer Authentication.
 Login:
 
 ```
-POST /api/auth/login
+POST /admin/login
 ```
 
 The returned JWT should be supplied in the Authorization header.
@@ -240,6 +250,7 @@ Every Pull Request automatically:
 - Restores NuGet packages
 - Builds the solution
 - Ensures the project compiles successfully
+- Runs the tests project
 
 ---
 
