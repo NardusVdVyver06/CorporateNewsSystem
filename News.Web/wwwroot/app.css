@@ -6,6 +6,14 @@ a, .btn-link {
     color: #006bb7;
 }
 
+.text-heading {
+    color: #333446;
+}
+
+.text-highlight {
+    color: #7F8CAA;
+}
+
 #blazor-error-ui {
     color-scheme: light only;
     background: lightyellow;
@@ -25,4 +33,37 @@ a, .btn-link {
     position: absolute;
     right: 0.75rem;
     top: 0.5rem;
+}
+
+.page-background {
+    min-height: 100vh;
+    background: linear-gradient(
+            180deg,
+            #EAEFEF 0%,
+            #B8CFCE 100%
+    );
+}
+
+.article-card {
+    transition:
+            transform .2s ease,
+            box-shadow .2s ease;
+    cursor: pointer;
+}
+
+.article-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.12) !important;
+}
+
+.article-card:active {
+    transform: translateY(-2px);
+}
+
+.article-card .card-body {
+    transition: background-color .2s ease;
+}
+
+.article-card:hover .card-body {
+    background-color: rgba(255, 255, 255, 0.35);
 }
