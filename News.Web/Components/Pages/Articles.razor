@@ -25,8 +25,7 @@
             @foreach (var article in _articles)
             {
                 <div class="col-12">
-                    <a href="@($"/article/{article.Id}")"
-                       class="card article-card border-0 shadow-sm rounded-4 text-decoration-none text-reset h-100">
+                    <a href="@($"/article/{article.Id}")" class="card article-card border-0 shadow-sm rounded-4 text-decoration-none text-reset h-100">
 
                         <div class="card-body p-4">
 
@@ -36,17 +35,26 @@
                                 </h2>
 
                                 <small class="text-nowrap text-highlight">
+                                    <i class="bi bi-calendar3 pe-2"></i>
                                     @article.PublishDate.ToLocalTime().ToString("dd MMM yyyy")
                                 </small>
                             </div>
 
-                            <div class="small mb-3 text-highlight">
+                            <div class="small mb-2 text-highlight">
                                 @article.Author
                             </div>
 
-                            <p class="mb-0">
-                                @GetPreview(article.Content)
-                            </p>
+                            <div class="d-flex align-items-end justify-content-between mt-3">
+
+                                <p class="mb-0 flex-grow-1 me-3">
+                                    @GetPreview(article.Content)
+                                </p>
+
+                                <div class="article-arrow flex-shrink-0">
+                                    <i class="bi bi-arrow-right"></i>
+                                </div>
+
+                            </div>
 
                         </div>
 

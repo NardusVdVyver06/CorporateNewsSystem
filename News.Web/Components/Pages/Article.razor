@@ -10,15 +10,18 @@
     }
     else
     {
-        <a class="link-secondary text-decoration-none mb-3 d-inline-block" href="/articles">Back to articles</a>
+        <a href="/articles" class="link-secondary text-decoration-none mb-3 d-inline-flex align-items-center">
+            <i class="bi bi-arrow-left-short fs-3 me-1"></i>
+            <span>Back to articles</span>
+        </a>
 
         <article class="card border-0 shadow-sm rounded-4 text-decoration-none p-4">
-            <header class="mb-4">
+            <header class="mb-3">
                 <h1 class="h3 mb-0 fw-semibold text-heading pb-2">@_article.Title</h1>
                 <div class="text-highlight">
                     <span>@_article.Author</span>
                     <span class="mx-2">•</span>
-                    <span>@_article.PublishDate.ToLocalTime().ToString("dd MMM yyyy")</span>
+                    <span><i class="bi bi-calendar3 pe-2"></i>@_article.PublishDate.ToLocalTime().ToString("dd MMM yyyy")</span>
                 </div>
             </header>
 

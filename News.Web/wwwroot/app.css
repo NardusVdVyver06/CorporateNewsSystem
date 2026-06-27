@@ -6,6 +6,10 @@ a, .btn-link {
     color: #006bb7;
 }
 
+h1:focus {
+    outline: none;
+}
+
 .text-heading {
     color: #333446;
 }
@@ -38,8 +42,9 @@ a, .btn-link {
 .page-background {
     min-height: 100vh;
     background: linear-gradient(
-            180deg,
+            to bottom right,
             #EAEFEF 0%,
+            #EAEFEF 45%,
             #B8CFCE 100%
     );
 }
@@ -64,6 +69,27 @@ a, .btn-link {
     transition: background-color .2s ease;
 }
 
-.article-card:hover .card-body {
+.article-card:hover .article-arrow .card-body {
     background-color: rgba(255, 255, 255, 0.35);
+}
+
+.article-arrow {
+    width: 44px;
+    height: 44px;
+
+    border-radius: 50%;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    background-color: #EAF5F4;
+    color: #7F8CAA;
+
+    font-size: 1.2rem;
+
+    transition:
+            background-color .2s ease,
+            color .2s ease,
+            transform .2s ease;
 }
