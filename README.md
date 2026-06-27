@@ -184,7 +184,7 @@ dotnet run --project News.Web
 The website will be deployed to:
 
 ```
-http://localhost:7072
+http://localhost:5190
 ```
 
 Open the displayed URL in your browser.
